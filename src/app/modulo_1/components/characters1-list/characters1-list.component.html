@@ -1,0 +1,56 @@
+<div class="botones">
+  <button class="btn btn-primary" (click)="orderItems('asc')"> Ordenar Ascendente</button>
+  <button class="btn btn-primary" (click)="orderItems('desc')"> Ordenar Descendente</button>
+  <button class="btn btn-primary" (click)="orderItems()"> Ordenar Original</button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+    aria-expanded="false" aria-controls="collapseExample">
+    Añadir caricatura
+  </button>
+
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEdit"
+    aria-expanded="false" aria-controls="collapseEdit">
+    Editar caricatura
+  </button>
+
+</div>
+<br>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <label for="newTitle" class="form-label">Titulo </label>
+    <input class="form-control" type="text" id="newTitle" [(ngModel)]="newTitle">
+    <label for="newYear" class="form-label">Año </label>
+    <input class="form-control" type="number" id="newYear" [(ngModel)]="newYear">
+    <label for="newEpisodes" class="form-label">Numero de episodios </label>
+    <input class="form-control" type="number" id="newEpisodes" [(ngModel)]="newEpisodes">
+    <label for="newImg" class="form-label">Imagen </label>
+    <input class="form-control" type="text" id="newImg" [(ngModel)]="newImg">
+    <label for="newId" class="form-label">Id </label>
+    <input class="form-control" type="number" id="newId" [(ngModel)]="newId">
+
+    <button class="btn btn-secondary" (click)="createCartoon()" type="button">Añadir</button>
+  </div>
+</div>
+<div class="collapse" id="collapseEdit">
+  <div class="card card-body">
+    <label for="idToEdit" class="form-label">Id </label>
+    <input class="form-control" type="number" id="idToEdit" [(ngModel)]="idToEdit">
+    <label for="newTitleEdited" class="form-label">Titulo </label>
+    <input class="form-control" type="text" id="newTitleEdited" [(ngModel)]="newTitleEdited">
+    <label for="newYearEdited" class="form-label">Año </label>
+    <input class="form-control" type="number" id="newYearEdited" [(ngModel)]="newYearEdited">
+    <label for="newEpisodesEdited" class="form-label">Numero de episodios </label>
+    <input class="form-control" type="number" id="newEpisodesEdited" [(ngModel)]="newEpisodesEdited">
+    <label for="newImgEdited" class="form-label">Imagen </label>
+    <input class="form-control" type="text" id="newImgEdited" [(ngModel)]="newImgEdited">
+
+    <button class="btn btn-secondary" (click)="modifyCartoon()" type="button">Editar</button>
+  </div>
+</div>
+<br>
+<label for="searchTerm" class="form-label">Buscar por titulo: </label>
+<input class="form-control" type="text" id="searchTerm" [(ngModel)]="searchTerm">
+<button class="btn btn-secondary" (click)="searchByTerm()" type="button">Buscar</button>
+<div class="cards">
+  <app-character1 (onClickButton)="getId(character.id)" *ngFor="let character of characters" [character]="character">
+  </app-character1>
+</div>

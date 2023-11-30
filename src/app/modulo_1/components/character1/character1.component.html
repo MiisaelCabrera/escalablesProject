@@ -1,0 +1,9 @@
+<div class="card" style="width: 18rem;">
+  <img src="{{ character.img }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ character.title }}</h5>
+    <div class="card-text"><b>Año: </b>{{ character.year }}</div>
+    <div class="card-text"><b>Episodios: </b>{{ character.episodes }}</div>
+    <button class="btn btn-danger" (click)="onClickButton.emit()">Eliminar</button>
+  </div>
+</div>
